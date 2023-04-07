@@ -65,14 +65,37 @@ public class GuessingGameTest {
         assertEquals(10, sum);
     }
 
+
+    private void makeThreeWrongGuesses(){
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+    }
     @Test
     public void testFourWrongGuesses(){
-        game.guess(-3);
-        game.guess(-3);
-        game.guess(-3);
+        makeThreeWrongGuesses();
         String message = game.guess(-3);
         assertEquals("You didnt get it and youve had four tries. Game over.", message);
-
     }
+
+    @Test
+    public void testThreeWrongGuessesAndOneCorrect(){
+        makeThreeWrongGuesses();
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        assertEquals("You got it", message);
+    }
+
+
+    @Test
+    public void testTwoWrongGuessesAndOneCorrect(){
+        game.guess(-3);
+        game.guess(-3);
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        assertEquals("You got it", message);
+    }
+
+
 
 }

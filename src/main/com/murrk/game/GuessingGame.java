@@ -8,7 +8,7 @@ public class GuessingGame {
 
     public String guess(int guessedNumber) {
         counter++;
-        if (counter == 4){
+        if (counter == 4 && guessedNumber != getRandomNumber()){
             return "You didnt get it and youve had four tries. Game over.";
         }
         return guessedNumber == getRandomNumber() ? "You got it" : "You didnt get it";
