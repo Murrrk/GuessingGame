@@ -72,11 +72,21 @@ public class GuessingGameTest {
         game.guess(-3);
         game.guess(-3);
     }
+
     @Test
     public void testFourWrongGuesses(){
         makeThreeWrongGuesses();
         String message = game.guess(-3);
-        assertEquals("You didnt get it and youve had four tries. Game over.", message);
+        assertEquals("You didnt get it and youve had 4 tries. Game over.", message);
+    }
+
+    @Test
+    public void testTenWrongGuesses(){
+        makeThreeWrongGuesses();
+        makeThreeWrongGuesses();
+        makeThreeWrongGuesses();
+        String message = game.guess(-3);
+        assertEquals("Sorry you are limited to 4 tries. Your game is over.", message);
     }
 
     @Test
