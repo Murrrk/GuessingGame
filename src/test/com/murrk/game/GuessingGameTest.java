@@ -28,7 +28,7 @@ public class GuessingGameTest {
     public void testOneWrongNegativeGuessSituation(){
         String message = game.guess(-5);
 
-        assertEquals("You didnt get it", message);
+        assertEquals("You didnt get it - youre too low", message);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class GuessingGameTest {
         int randomNum = game.getRandomNumber();
         String message = game.guess(randomNum + 1);
 
-        assertEquals("You didnt get it", message);
+        assertEquals("You didnt get it - youre too high", message);
     }
 
     /**
