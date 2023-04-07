@@ -37,5 +37,31 @@ public class GuessingGameTest {
         assertEquals("You didnt get it", message);
     }
 
+    /**
+     * The following method tests if our random number generation is working properly (for the numbers between 1 and 10)
+     * To track if our generation is working properly, we have an array with 10 elements
+     * each one of them is a "0". Each time a number is selected the value of "0" in the array
+     * for the selected number is changed to "1". We loop our generation one hundred times and if the
+     * sum of the array elements is 10 (we got every number at least once),
+     * then our generation is working properly.
+     */
+    @Test
+    public void testRandomNumberGeneration(){
+        // 1 2 3 4 5 6 7 8 9 10
+        // 1 1 1 1 1 1 1 1 1 1 = 10
+        int[] randomNumberCount = new int[11];
+        for (int counter = 0; counter < 100; counter++){
+            int randomNum = game.getRandomNumber();
+            randomNumberCount[randomNum] = 1;
+        }
+
+        int sum = 0;
+        for (int counter = 0; counter < 11; counter++){
+            sum += randomNumberCount[counter];
+        }
+        assertEquals(10, sum);
+    }
+
+
 
 }
