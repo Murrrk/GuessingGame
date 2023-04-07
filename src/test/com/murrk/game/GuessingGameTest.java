@@ -1,6 +1,7 @@
 package com.murrk.game;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -46,11 +47,12 @@ public class GuessingGameTest {
      * then our generation is working properly.
      */
     @Test
+    //@RepeatedTest(10) additional test if 50 loops is enough to get each number 1 through 10 atleast once
     public void testRandomNumberGeneration(){
         // 1 2 3 4 5 6 7 8 9 10
         // 1 1 1 1 1 1 1 1 1 1 = 10
         int[] randomNumberCount = new int[11];
-        for (int counter = 0; counter < 100; counter++){
+        for (int counter = 0; counter < 50; counter++){
             GuessingGame localGame = new GuessingGame();
             int randomNum = localGame.getRandomNumber();
             randomNumberCount[randomNum] = 1;
