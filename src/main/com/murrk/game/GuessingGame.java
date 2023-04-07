@@ -11,7 +11,9 @@ public class GuessingGame {
         if (counter == 4 && guessedNumber != getRandomNumber()){
             return "You didnt get it and youve had four tries. Game over.";
         }
-        return guessedNumber == getRandomNumber() ? "You got it" : "You didnt get it";
+        String tryText = counter == 1 ? "try" : "tries";
+        String winningMsg = String.format("You got it in %d %s", counter, tryText);
+        return guessedNumber == getRandomNumber() ? winningMsg : "You didnt get it";
     }
 
     public int getRandomNumber() {
