@@ -51,7 +51,8 @@ public class GuessingGameTest {
         // 1 1 1 1 1 1 1 1 1 1 = 10
         int[] randomNumberCount = new int[11];
         for (int counter = 0; counter < 100; counter++){
-            int randomNum = game.getRandomNumber();
+            GuessingGame localGame = new GuessingGame();
+            int randomNum = localGame.getRandomNumber();
             randomNumberCount[randomNum] = 1;
         }
 
