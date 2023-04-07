@@ -47,7 +47,7 @@ public class GuessingGameTest {
      * then our generation is working properly.
      */
     @Test
-    //@RepeatedTest(10) additional test if 50 loops is enough to get each number 1 through 10 atleast once
+    //@RepeatedTest(10) additional test if 50 loops is enough to get each number 1 through 10 at least once
     public void testRandomNumberGeneration(){
         // 1 2 3 4 5 6 7 8 9 10
         // 1 1 1 1 1 1 1 1 1 1 = 10
@@ -65,6 +65,14 @@ public class GuessingGameTest {
         assertEquals(10, sum);
     }
 
+    @Test
+    public void testFourWrongGuesses(){
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        String message = game.guess(-3);
+        assertEquals("You didnt get it and youve had four tries. Game over.", message);
 
+    }
 
 }
