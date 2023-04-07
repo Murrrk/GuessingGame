@@ -1,6 +1,7 @@
 package com.murrk.game;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessingGame {
     private final int randomNumber = new Random().nextInt(1,11);
@@ -35,5 +36,26 @@ public class GuessingGame {
 
     public int getRandomNumber() {
         return randomNumber;
+    }
+
+    public static void main(String[] args) {
+        GuessingGame game = new GuessingGame();
+        Scanner scan = new Scanner(System.in);
+        boolean loopShouldContinue = true;
+        do {
+            System.out.print("Enter a number: ");
+            String input = scan.nextLine();
+            if("quit".equals(input)){
+                System.out.println("Quitting now...");
+                break;
+            }
+
+            String output = game.guess(Integer.parseInt(input));
+            System.out.println(output);
+
+            if(output.contains("You got it") || output.contains("over")){
+                loopShouldContinue = false;
+            }
+        }while(loopShouldContinue);
     }
 }
